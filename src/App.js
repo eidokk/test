@@ -78,11 +78,7 @@ function App(props) {
           
           <div style={{ display: "flex" }}>
 
-            </div>
-           
-
-            
-      
+        </div>
         </div>
         )
         :
@@ -104,9 +100,7 @@ function App(props) {
 
 <div>
   <Box sx={{ '& > :not(style)': { m: 1 } }}>
-    
-  <Fab 
-  color="primary"
+    <Fab
   enabled aria-label="like">
         <FavoriteIcon />
       </Fab>
