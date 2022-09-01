@@ -13,17 +13,19 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import Badge from '@mui/material/Badge';
 import MailIcon from '@mui/icons-material/Mail';
-import Fab from '@mui/material/Fab';
-import AddIcon from '@mui/icons-material/Add';
-import EditIcon from '@mui/icons-material/Edit';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import NavigationIcon from '@mui/icons-material/Navigation';
+import { useState } from 'react';
 
 
 
 
 
-function App() {
+function App(props) {
+  
+  
+  const [show, setShow] = useState(false)
+  const [age, setAge] = useState(15)
+
+
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>
@@ -51,10 +53,14 @@ function App() {
         </Toolbar>
       </AppBar>
     </Box>
+
     <h3>Messages</h3>
-    <Badge badgeContent={4} color="primary">
+    <Badge 
+    badgeContent={1} color="primary">
       <MailIcon color="action" />
     </Badge>
+
+
  <h2> Chose gender</h2>
 <FormControl>
       <FormLabel id="demo-radio-buttons-group-label"></FormLabel>
@@ -68,42 +74,13 @@ function App() {
         <FormControlLabel value="other" control={<Radio />} label="Alien" />
       </RadioGroup>
     </FormControl>
-    <Box sx={{ '& > :not(style)': { m: 1 } }}>
-      <Fab color="primary" aria-label="add">
-        <AddIcon />
-      </Fab>
-      <Fab color="secondary" aria-label="edit">
-        <EditIcon />
-      </Fab>
-      <Fab variant="extended">
-        <NavigationIcon sx={{ mr: 1 }} />
-        Navigate
-      </Fab>
-      <Fab  aria-label="like">
-        <FavoriteIcon />
-      </Fab>
-    </Box> 
+
+    
     </div>
   );
 }
 
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
