@@ -16,7 +16,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import { useState } from 'react';
 import Fab from '@mui/material/Fab';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-
+import { Button } from '@mui/material';
 
 
 
@@ -28,94 +28,100 @@ function App(props) {
   
   
   const [show, setShow] = useState(false)
-  
+  const [number, setNumber] = useState (0)
   
 
 
   return (
-    <div> 
-<Box sx={{ flexGrow: 1 }}>
-       <AppBar position="static">
-         <Toolbar>
-           <IconButton
-             size="large"
-             edge="start"
-             color="inherit"
-             aria-label="open drawer"
-             sx={{ mr: 2 }}
-           >
-             <MenuIcon />
-           </IconButton>
-           <Typography
-             variant="h6"
-             noWrap
-             component="div"
-             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-           >
-             MUI
-           </Typography>
-         
-          
-         </Toolbar>
-       </AppBar>
-     </Box>
-      <Badge
-      badgeContent={1} color="primary"
-      style={{ margin: "20px" }}
       
+    
+    
+    <div >
+    <Box sx={{ flexGrow: 1 }}> 
+   <AppBar position="static"> 
+     <Toolbar> 
+       <IconButton 
+         size="large" 
+         edge="start" 
+         color="inherit" 
+         aria-label="open drawer" 
+         sx={{ mr: 2 }} 
+       > 
+         <MenuIcon /> 
+       </IconButton> 
+       <Typography 
+         variant="h6" 
+         noWrap 
+         component="div" 
+         sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}       > 
+         MUI 
+       </Typography> 
+     </Toolbar> 
+   </AppBar> 
+ </Box>
+ 
+ 
+ 
+    
+       <Badge 
 
-        onClick={() =>
-          setShow(!show)
-        }
-        variant='contained'
-      >
-        {show == true ? "Hide" : "Show"}
-        <MailIcon color="action" />
-      </Badge>
-      {show == true ?
-        (<div style={{ margin: "5px" }}>
-          <h4>Im here to inform u that u owe me $100</h4>
-          
-          <div style={{ display: "flex" }}>
+badgeContent={1} color="primary" 
 
-        </div>
+style={{ margin: "20px" }} 
+  onClick={() => 
+    setShow(!show) 
+  } 
+
+  variant='contained' 
+> 
+  {show == true ? "Hide" : "Show"} 
+  <MailIcon color="action" /> 
+</Badge> 
+{show == true ? 
+  (<div style={{ margin: "5px" }}> 
+    <h2>Choose your lucky number</h2> 
+    <div style={{ display: "flex" }}> 
+           
+            <Button
+              style={{ marginRight: "10px" }}
+              variant='contained'
+              onClick={() =>
+                setNumber(number + 1)
+              }
+            >
+               +
+            </Button>
+            <Button
+              style={{ marginRight: "10px" }}
+              variant='contained'
+              onClick={() =>
+                setNumber(number - 1)
+              }
+            >
+              -
+            </Button>
+            <Button
+              style={{ marginRight: "10px" }}
+              variant='contained'
+              onClick={() =>
+                setNumber(0)
+              }
+            >
+              Reset
+            </Button>
+
+          </div>
+
+          <h3>Your number: {number}</h3>
         </div>
         )
         :
-      <div style={{ margin: "10px" }}>
-        
-<h2> Chose gender</h2>
-    <FormControl>
-      <FormLabel id="demo-radio-buttons-group-label"></FormLabel>
-      <RadioGroup
-        aria-labelledby="demo-radio-buttons-group-label"
-        defaultValue="female"
-        name="radio-buttons-group"
-      >
-        <FormControlLabel value="female" control={<Radio />} label="Female" />
-        <FormControlLabel value="male" control={<Radio />} label="Male" />
-        <FormControlLabel value="other" control={<Radio />} label="Alien" />
-      </RadioGroup>
-    </FormControl>
-
-<div>
-  <Box sx={{ '& > :not(style)': { m: 1 } }}>
-    <Fab
-  enabled aria-label="like">
-        <FavoriteIcon />
-      </Fab>
-    </Box>
-    <h2 style={{ margin: "10px" }}>Likes</h2>
-       </div>   
- 
-       
-
-      </div>
-        }
-       </div>
-          
+        <div></div>
+      }
+    </div>
   );
-}
+}  
+        
 
 export default App;
 
